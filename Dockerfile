@@ -25,7 +25,7 @@ ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION
 RUN gunzip -c /tmp/s6-overlay-amd64.tar.gz | tar -xf - -C /
 
 # Setup Volume
-VOLUME ["/usr/share/nginx/html", "/etc/nginx", "/var/log/nginx"]
+#VOLUME ["/usr/share/nginx/html", "/etc/nginx", "/var/log/nginx"]
 
 # ADD SOURCE
 ONBUILD RUN chown -Rf nginx:nginx /usr/share/nginx/html/
