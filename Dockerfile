@@ -24,12 +24,6 @@ RUN rm -fr /var/cache/apk/*
 ADD https://github.com/just-containers/s6-overlay/releases/download/${S6_VERSION}/s6-overlay-amd64.tar.gz /tmp/
 RUN gunzip -c /tmp/s6-overlay-amd64.tar.gz | tar -xf - -C /
 
-# Setup Volume
-#VOLUME ["/usr/share/nginx/html", "/etc/nginx", "/var/log/nginx"]
-
-# ADD SOURCE
-ONBUILD RUN chown -Rf nginx:nginx /usr/share/nginx/html/
-
 # Expose Ports
 EXPOSE 443
 EXPOSE 80
