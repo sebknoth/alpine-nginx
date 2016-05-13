@@ -12,12 +12,14 @@ RUN apk add --update --no-cache curl bash
 # Add NGINX-Webserver with NAXSI
 RUN apk upgrade -U && \
     apk --update --repository=http://dl-4.alpinelinux.org/alpine/edge/testing add \
-    nginx
+    nginx \
+    shadow
 
 COPY /rootfs /
 
 # Small fixes
 RUN rm -fr /var/cache/apk/*
+RUN usermod -u 1000 nginx
 
 # Add S6-overlay to use S6 process manager
 # https://github.com/just-containers/s6-overlay/#the-docker-way
